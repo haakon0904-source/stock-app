@@ -1,17 +1,31 @@
-# stock_app
+# stock_app — 주식 분석 앱 (Flutter 클라이언트)
 
-A new Flutter project.
+`stock_system`(파이썬 백엔드)이 계산한 포트폴리오·ETF·실적 분석 결과를 보여주는 Flutter 앱.
 
-## Getting Started
+> **로컬 디스크 정리를 위한 아카이브** (2026-10-13 기준).
+> 원본 경로: `~/PycharmProjects/stock_app/` — 로컬 삭제됨. 소스는 이 저장소에 전부 올라와 있다.
 
-This project is a starting point for a Flutter application.
+백엔드(비공개 저장소): `haakon0904-source/stock-system` — KIS OpenAPI 연동, 카카오 알림, `api_server.py` 가 이 앱의 API.
 
-A few resources to get you started if this is your first Flutter project:
+## 구조
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```
+lib/
+  main.dart
+  models/     데이터 모델
+  services/   API 호출
+  screens/    화면
+  widgets/    공통 위젯
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+주요 패키지: `http`, `provider`, `fl_chart`(차트), `shared_preferences`, `cached_network_image`, `shimmer`, `intl`.
+
+## 실행
+
+```bash
+flutter pub get
+flutter run            # 기기/에뮬레이터
+flutter build apk      # 또는 flutter build web
+```
+
+`build/`, `.dart_tool/` 는 저장소에서 제외되어 있다 (`flutter pub get` 이후 자동 재생성).
